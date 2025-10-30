@@ -30,7 +30,7 @@ w) # Any other change
      tar -C / -xf /out/nginx/pipe
    done
    echo "watch.sh: patching epro-controller upstream"
-   sed -i '/upstream epro-controller\.dockerappv1\.pmli\.corp {/,/}/ s/server \([0-9.]*:[0-9]*\);/server \1 fail_timeout=0s max_fails=1000;/' /etc/nginx/nginx.conf
+   sed -i '/upstream \(up-\)\?epro-controller\.dockerappv1\.pmli\.corp {/,/}/ s/server \([0-9.]*:[0-9]*\);/server \1 fail_timeout=0s max_fails=1000;/' /etc/nginx/nginx.conf
    nginx -s reload
    ;;
 esac
