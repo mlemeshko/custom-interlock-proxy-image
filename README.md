@@ -1,9 +1,11 @@
 # custom-interlock-proxy-image for specific upstream app
 
 That custome image contains one modification in entrypoint.sh and watch.sh
+
 ## What have been done?
-In short for every line in /etc/nginx/nginx.conf that contains the word server under upstream up-epro-controller.dockerappv1.pmli.corp block,
-replace every ";" in that line with "fail_timeout=0s max_fails=1000;",
+
+In short for every line in **/etc/nginx/nginx.conf** that contains the word server under upstream up-epro-controller.dockerappv1.pmli.corp block,
+replace every ";" in that line with **"fail_timeout=0s max_fails=1000;"**,
 and edit the file directly in place.”
 
 ###Details
