@@ -20,7 +20,7 @@ else
     tar -C / -xf /out/nginx/pipe
   done
 fi
-echo "entrypoint.sh: patching epro-controller upstream"
+echo "entrypoint.sh: patching epro-controller upstream - adding fail_timeout and max_fails"
 sed -i '/upstream \(up-\)\?epro-controller\.dockerappv1\.pmli\.corp {/,/}/ s/server \([0-9.]*:[0-9]*\);/server \1 fail_timeout=0s max_fails=1000;/' /etc/nginx/nginx.conf
 # Start inotifyd and nginx in the background - this shell will wait
 # for both of them to exit
